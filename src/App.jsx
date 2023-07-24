@@ -1,5 +1,6 @@
 import Table from './components/Table';
-import {TABLE_HEADER} from './App.constants'
+import { TABLE_HEADER } from './App.constants'
+import { data } from "./data";
 import './App.css'
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <>
-      <Table columDefinition={productColumns}/>
+      <Table columDefinition={productColumns} rowDefinition={data}/>
     </>
   )
 }

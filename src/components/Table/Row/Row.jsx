@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import "./Row.css"; 
 
-/* eslint-disable react/prop-types */
 const Row = ({
     id, 
     sku, 
