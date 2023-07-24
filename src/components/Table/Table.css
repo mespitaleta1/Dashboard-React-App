@@ -1,0 +1,23 @@
+.productTable-container {
+    overflow: hidden;
+    width: max-content;
+    margin: 200px auto;
+    border-radius: 10px;
+    border: 2px solid #e5e7eb;
+}
+
+.productTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.productTable-header {
+    color: #555e72;
+    background-color: #eff2f4; 
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.table-head_column {
+    text-align: left;
+    padding: 10px 24px;
+}
