@@ -1,32 +1,30 @@
+import TableHead from "./TableHead";
 import Row from "./Row";
-import { TABLE_HEADER, NO_ROW_ELEMENT_TEXT } from "./Table.constants";
 import { data } from "../../data";
+import { NO_ROW_ELEMENT_TEXT } from "./Table.constants";
 import "./Table.css";
 
-const Table = () => {
-  const noRowElemet = (
+
+const Table = ({
+    // eslint-disable-next-line react/prop-types
+    columDefinition
+}) => {
+    const noRowElemet = (
         <tr>
-        <td className="table-body_row">{NO_ROW_ELEMENT_TEXT}</td>
+        <td className="table-body_row">{ NO_ROW_ELEMENT_TEXT }</td>
         <td></td>
         <td></td>
         <td></td>
     </tr>); 
 
+
     return (
         <div className="productTable-container">
             <table className="productTable">
-                <thead className="productTable-header">
-                    <tr>
-                        <th className="table-head_column">{TABLE_HEADER.SKU}</th>
-                        <th className="table-head_column">{TABLE_HEADER.NAME}</th>
-                        <th className="table-head_column">{TABLE_HEADER.STOCK}</th>
-                        <th className="table-head_column">{TABLE_HEADER.RESTOCK}</th>
-                    </tr>
-                </thead>
+                <TableHead columDefinition={columDefinition} />
                 <tbody className="productTable-body">
                     { data.length > 0 ?  
                         data.map((product,idx)=> 
-                        
                         <Row 
                             key={idx} 
                             sku={product.variants[0].sku} 
