@@ -2,17 +2,20 @@ import ProductTable from './components/ProductTable/ProductTable';
 import Filter from './components/Filter';
 
 import './App.css'
+import { useState } from 'react';
 
 function App() {
-  
+  const [filterValue, setFilterValue] = useState(""); 
+
   return (
     <>
       <div className="layout-container">
         <div className='aside-box'>
-          <Filter/>
+          <Filter TextValue={filterValue} onChange={(e) => {
+              setFilterValue(e.target.value);
+          }}/>
         </div>
-     
-        <ProductTable/>
+        <ProductTable filterText={filterValue}/>
       </div>
     </>
   )

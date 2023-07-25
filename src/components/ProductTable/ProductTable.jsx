@@ -1,14 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useEffect } from "react";
-import { useState } from "react";
-import {TABLE_HEADER} from "../../App.constants";
-import { getShopifyProducts } from "../../Services/shopifyApi";
+import { useEffect, useState } from "react";
 import Table from "../Table/index";
+import { getShopifyProducts } from "../../Services/shopifyApi";
+import { TABLE_HEADER } from "../../App.constants";
 
 
-const ProductTable = () => {
+const ProductTable = ({filterText}) => {
+    const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([]); 
     const [fetched, setFetched] = useState(false);
+    const filterTextValue = filterText.toLowerCase();
 
     const productColumns = [
         { 
@@ -28,7 +30,7 @@ const ProductTable = () => {
           title: TABLE_HEADER.RESTOCK,
         },
       ]; 
-    
+
     useEffect(()=> {
         const getAndSetData = async () => {
             try {
@@ -44,6 +46,7 @@ const ProductTable = () => {
                   return arr;
                 }, []); 
                 setProducts(products);
+                setAllProducts(allProducts);
                 setFetched(true);
             } catch (error) {
                 console.error("Error", error);
@@ -53,11 +56,28 @@ const ProductTable = () => {
         if(!fetched) {
             getAndSetData();
         }
+
+        getAndSetData();
     }, [fetched]);
 
 
+    useEffect(()=> {     
+      if(filterTextValue) {
+        const filteredProducts = products.filter(product =>
+          product.title.toLowerCase().includes(filterTextValue) || 
+          product.sku.toLowerCase().includes(filterTextValue)
+        );
+ 
+        setProducts(filteredProducts);
 
-    return (<Table columDefinition={productColumns} items={products} />)
+      } else {
+        setFetched(false);
+        setProducts(products);
+      }
+
+  }, [filterText]);
+
+    return (<Table columDefinition={productColumns} items={products}/>)
 }
 
-export default ProductTable; 
+export default ProductTable;

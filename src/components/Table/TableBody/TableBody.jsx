@@ -7,6 +7,7 @@ const TableBody = ({
     columDefinition,
     errorMessage
 }) => {
+
     return (
         <tbody className="productTable-body">
             { items.length > 0 ?  

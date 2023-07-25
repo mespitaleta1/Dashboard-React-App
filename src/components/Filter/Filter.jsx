@@ -1,12 +1,15 @@
+/* eslint-disable react/prop-types */
 import "./Filter.style.css"; 
 
-const Filter = () => {
-
+const Filter = ({TextValue, onChange}) => {  
     return ( 
         <input 
-        type="text" 
+        type="search" 
         className="filter"
-        placeholder="Search products ..."/>
+        name="search_input"
+        value={TextValue}
+        onChange={onChange}
+        placeholder="Search product ..."/>
     )
 }; 
 
