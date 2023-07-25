@@ -1,14 +1,10 @@
+/* eslint-disable react/prop-types */
 const TableHead = ({
-    // eslint-disable-next-line react/prop-types
     columDefinition
 }) => {
     return (
     <thead className="productTable-header">
-        <tr> { 
-            // eslint-disable-next-line react/prop-types
-            columDefinition.map((col) => <th className="table-head_column" key={col.id}> {col.title}</th>)
-            }
-        </tr>
+        <tr>{columDefinition.map((col, idx) => <th key={idx} className="table-head_column">{col.title}</th>)}</tr>
     </thead>
     );
 }; 
