@@ -2,21 +2,13 @@
 import "./Row.css"; 
 
 const Row = ({
-    id, 
-    sku, 
-    productName, 
-    quantityOnStock, 
-    restock 
+    item,
+    columDefinition
 }) => {
     return (
-        <>
-         <tr key={id}>
-            <td id="sku" className="table-body_row">{sku}</td>
-            <td className="table-body_row">{productName}</td>                        
-            <td className="table-body_row">{quantityOnStock}</td>
-            <td id="restock" className="table-body_row">{restock}</td>
+         <tr>
+            {columDefinition.map(({columnId}) =>  <td key={columnId} className="table-body_row">{String(item[columnId])}</td>)}
         </tr>
-        </>
     );
 }
 

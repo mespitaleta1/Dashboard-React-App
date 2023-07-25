@@ -3,20 +3,18 @@ import Row from "../Row/index";
 import "./TableBody.css";
 
 const TableBody = ({
-    rowDefinition,
+    items,
+    columDefinition,
     errorMessage
 }) => {
-
     return (
         <tbody className="productTable-body">
-            { rowDefinition.length > 0 ?  
-                rowDefinition.map((product,idx)=> 
+            { items.length > 0 ?  
+                items.map((item ,idx)=> 
                     <Row 
                         key={idx} 
-                        sku={product.variants[0].sku} 
-                        productName={product.title} 
-                        quantityOnStock={product.variants[0].inventory_quantity} 
-                        restock={String(product.variants[0].requires_shipping)} 
+                        columDefinition={columDefinition}
+                        item={item}
                     />) 
                 : (
                 <tr>

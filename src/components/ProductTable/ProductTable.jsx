@@ -7,24 +7,24 @@ import Table from "../Table/index";
 
 
 const ProductTable = () => {
-    const [data, setData] = useState([]); 
+    const [products, setProducts] = useState([]); 
     const [fetched, setFetched] = useState(false);
 
     const productColumns = [
         { 
-          id:1,
-          title: TABLE_HEADER.SKU , 
+          columnId: "sku",
+          title: TABLE_HEADER.SKU,
         },
         { 
-          id:2,
+         columnId: "title",
           title: TABLE_HEADER.NAME,
         },
         { 
-          id:3,
+         columnId: "stock",
           title: TABLE_HEADER.STOCK,
         },
         { 
-          id:4,
+         columnId: "restock",
           title: TABLE_HEADER.RESTOCK,
         },
       ]; 
@@ -33,7 +33,17 @@ const ProductTable = () => {
         const getAndSetData = async () => {
             try {
                 const data = await getShopifyProducts();
-                setData(data.products);
+                const products = data.products.reduce((arr, item) => {
+                  arr.push({
+                      sku: item.variants[0].sku,
+                      title: item.title,
+                      stock: item.variants[0].inventory_quantity,
+                      restock: item.variants[0].requires_shipping
+                    })
+                
+                  return arr;
+                }, []); 
+                setProducts(products);
                 setFetched(true);
             } catch (error) {
                 console.error("Error", error);
@@ -45,7 +55,9 @@ const ProductTable = () => {
         }
     }, [fetched]);
 
-    return (<Table columDefinition={productColumns} rowDefinition={data} />)
+
+
+    return (<Table columDefinition={productColumns} items={products} />)
 }
 
 export default ProductTable; 

@@ -7,14 +7,13 @@ import "./Table.css";
 
 const Table = ({
     columDefinition,
-    rowDefinition
+    items
 }) => {
-
     return (
         <div className="productTable-container">
             <table className="productTable">
                 <TableHead columDefinition={columDefinition} />
-                <TableBody rowDefinition={rowDefinition} errorMessage={ NO_ROW_ELEMENT_TEXT } />
+                <TableBody items={items} columDefinition={columDefinition} errorMessage={ NO_ROW_ELEMENT_TEXT } />
             </table>
         </div>
     )
