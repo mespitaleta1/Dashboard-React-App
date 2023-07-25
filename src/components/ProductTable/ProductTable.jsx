@@ -46,7 +46,7 @@ const ProductTable = ({filterText}) => {
                   return arr;
                 }, []); 
                 setProducts(products);
-                setAllProducts(allProducts);
+                setAllProducts(products);
                 setFetched(true);
             } catch (error) {
                 console.error("Error", error);
@@ -56,23 +56,20 @@ const ProductTable = ({filterText}) => {
         if(!fetched) {
             getAndSetData();
         }
-
-        getAndSetData();
     }, [fetched]);
 
 
-    useEffect(()=> {     
+    useEffect(()=> {   
       if(filterTextValue) {
-        const filteredProducts = products.filter(product =>
+        const filteredProducts = allProducts.filter(product =>
           product.title.toLowerCase().includes(filterTextValue) || 
           product.sku.toLowerCase().includes(filterTextValue)
         );
- 
         setProducts(filteredProducts);
-
-      } else {
-        setFetched(false);
-        setProducts(products);
+      } 
+      
+      if(!filterTextValue && allProducts.length > 0) {
+        setProducts(allProducts);
       }
 
   }, [filterText]);
