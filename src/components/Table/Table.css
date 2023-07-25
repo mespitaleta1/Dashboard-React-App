@@ -1,9 +1,10 @@
 .productTable-container {
     overflow: hidden;
     width: max-content;
-    margin: 200px auto;
+    /*margin: 200px auto;*/
     border-radius: 10px;
     border: 2px solid #e5e7eb;
+    overflow-y: auto;
 }
 
 .productTable {
@@ -15,6 +16,8 @@
     color: #555e72;
     background-color: #eff2f4; 
     border-bottom: 2px solid #e5e7eb;
+    position: sticky;
+    top: 0;
 }
 
 .table-head_column {

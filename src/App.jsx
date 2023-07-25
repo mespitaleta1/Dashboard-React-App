@@ -1,4 +1,5 @@
 import ProductTable from './components/ProductTable/ProductTable';
+import Filter from './components/Filter';
 
 import './App.css'
 
@@ -6,7 +7,13 @@ function App() {
   
   return (
     <>
-      <ProductTable/>
+      <div className="layout-container">
+        <div className='aside-box'>
+          <Filter/>
+        </div>
+     
+        <ProductTable/>
+      </div>
     </>
   )
 }
