@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { PLACEHOLDER } from "./Filter.constant";
 import "./Filter.style.css"; 
 
 const Filter = ({TextValue, onChange}) => {  
@@ -9,7 +10,7 @@ const Filter = ({TextValue, onChange}) => {
         name="search_input"
         value={TextValue}
         onChange={onChange}
-        placeholder="Search product ..."/>
+        placeholder={ PLACEHOLDER }/>
     )
 }; 
 

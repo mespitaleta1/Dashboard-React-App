@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Row from "../Row/index";
-import "./TableBody.css";
+import "./TableBody.style.css";
 
 const TableBody = ({
     items,

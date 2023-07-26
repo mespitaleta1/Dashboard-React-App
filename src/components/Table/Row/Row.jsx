@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import "./Row.css"; 
+import "./Row.style.css"; 
 
 const Row = ({
     item,

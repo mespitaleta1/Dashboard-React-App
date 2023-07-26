@@ -2,7 +2,7 @@
 import TableHead from "./TableHead";
 import TableBody from "./TableBody/TableBody";
 import { ERRORS } from "./Table.constants";
-import "./Table.css";
+import "./Table.style.css";
 
 
 const Table = ({
