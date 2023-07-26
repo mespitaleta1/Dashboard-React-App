@@ -2,38 +2,24 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Table from "../Table/index";
+import Error from "../Error/index";
 import { getShopifyProducts } from "../../Services/shopifyApi";
-import { TABLE_HEADER } from "../../App.constants";
+import { LOADING,  PRODUCT_COLUMNS } from "./ProductTable.constant";
+import "./ProductTable.style.css";
 
 
 const ProductTable = ({filterText}) => {
+    const [loading, setLoading] = useState(false);
     const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([]); 
     const [fetched, setFetched] = useState(false);
+    const [showError, setShowError] = useState(false);
     const filterTextValue = filterText.toLowerCase();
-
-    const productColumns = [
-        { 
-          columnId: "sku",
-          title: TABLE_HEADER.SKU,
-        },
-        { 
-         columnId: "title",
-          title: TABLE_HEADER.NAME,
-        },
-        { 
-         columnId: "stock",
-          title: TABLE_HEADER.STOCK,
-        },
-        { 
-         columnId: "restock",
-          title: TABLE_HEADER.RESTOCK,
-        },
-      ]; 
 
     useEffect(()=> {
         const getAndSetData = async () => {
             try {
+                setLoading(true);
                 const data = await getShopifyProducts();
                 const products = data.products.reduce((arr, item) => {
                   arr.push({
@@ -45,11 +31,18 @@ const ProductTable = ({filterText}) => {
                 
                   return arr;
                 }, []); 
+
+                //throw Error("error")
                 setProducts(products);
                 setAllProducts(products);
                 setFetched(true);
+                setLoading(false);
+                setShowError(false);
+
             } catch (error) {
-                console.error("Error", error);
+              setLoading(false);
+              setShowError(true);
+              console.error("Error", error);
             }
         }; 
 
@@ -74,7 +67,11 @@ const ProductTable = ({filterText}) => {
 
   }, [filterText]);
 
-    return (<Table columDefinition={productColumns} items={products}/>)
+    return loading ? 
+        <p className="loading-state">{ LOADING }</p> 
+        : showError ? 
+          <Error reload={()=> { setFetched(false)}}/> 
+        : <Table columDefinition={PRODUCT_COLUMNS} items={products}/>;
 }
 
 export default ProductTable;

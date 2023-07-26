@@ -1,0 +1,22 @@
+.error-state {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.reload-button {
+    color: #fff;
+    padding: 4px;
+    width: 100px;
+    border-radius: 15px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-color: #4f46e4;
+    border: 1px solid transparent;
+}
+
+.error-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,2 +1,4 @@
-export const NO_ROW_ELEMENT_TEXT= "Product list not found..."
+export const ERRORS = { 
+    NO_ROW_ELEMENTS: "no items to display",
+};
 
