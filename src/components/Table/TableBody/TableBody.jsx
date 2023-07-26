@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import Row from "../Row/index";
 import "./TableBody.style.css";
-
+import {useProductListContext} from "../../../context/index"
 const TableBody = ({
-    items,
     columDefinition,
     errorMessage
 }) => {
+
+    const { products: items} = useProductListContext();
 
     return (
         <tbody className="productTable-body">
