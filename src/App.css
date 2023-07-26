@@ -1,18 +1,12 @@
 .layout-container {
   display: flex;
   height: 724px;
-  margin: 100px 200px;
+  margin: 100px 0px;
   justify-content: space-between;
 }
 
-.aside-box {
-  /* width: 291px; */
-  flex-basis: 26%;
-  height: 724px;
-  background-color: #fff;
-  border-radius: 10px;
-  border: 2px solid #e5e7eb;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+@media (min-width: 1024px){
+  .layout-container {
+    margin: 100px 38px;
+  }
 }

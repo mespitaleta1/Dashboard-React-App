@@ -5,8 +5,9 @@ const Row = ({
     item,
     columDefinition
 }) => {
+    
     return (
-         <tr>
+         <tr className="row-container">
             {columDefinition.map(({columnId}) =>  <td key={columnId} className="table-body_row">{String(item[columnId])}</td>)}
         </tr>
     );

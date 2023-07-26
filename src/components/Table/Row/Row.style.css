@@ -2,10 +2,10 @@
     padding: 18px 24px;
 }
 
-#sku {
-    color:  #111827;
+.table-body_row:first-child {
+    color: #3c3d3e; 
 }
 
-#restock {
+.table-body_row:last-child {
     color: #4f46e4;
 }

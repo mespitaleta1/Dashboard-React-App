@@ -1,10 +1,11 @@
 .productTable-container {
-    overflow: hidden;
+    flex-basis: 70%;
+    overflow-y: auto;
     width: max-content;
-    /*margin: 200px auto;*/
+    max-height: 724px;
+    height: fit-content;
     border-radius: 10px;
     border: 2px solid #e5e7eb;
-    overflow-y: auto;
 }
 
 .productTable {

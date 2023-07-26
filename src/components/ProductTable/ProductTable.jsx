@@ -32,7 +32,6 @@ const ProductTable = ({filterText}) => {
                   return arr;
                 }, []); 
 
-                //throw Error("error")
                 setProducts(products);
                 setAllProducts(products);
                 setFetched(true);

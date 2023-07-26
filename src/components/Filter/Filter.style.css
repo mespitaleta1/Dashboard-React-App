@@ -1,7 +1,11 @@
 .filter {
-    margin: 60px auto 0;
-    border: 2px solid #e5e7eb;
+    width: 100%;
     padding: 12px 20px;
-    width: 70%;
     border-radius: 19px;
+    outline-color: #858fee;
+    border: 2px solid #e5e7eb;
+}
+
+::placeholder {
+    color: #c1c1c1;
 }
