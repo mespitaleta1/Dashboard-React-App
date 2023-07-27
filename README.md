@@ -9,7 +9,6 @@ Here you will find a prospective development in functionality and design of a St
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 
@@ -49,11 +48,6 @@ The intention to imporve this project, is focus on:
     - setting a debounce to avoid unnecessary calls to the API while is searching a product.
     - Improve the use of the custom hooks 
 and more.
-
-
-### Useful resources
-- [Example resource 1](https://vitejs.dev/) - This will you help to get more in deep about Vite.
-this documentation, will help you to get more detail about the documentation about the implementation of vite 
 
 ## Author
 - Website - [mespitaleta1](https://mespitaleta1.github.io/portfolio/)
