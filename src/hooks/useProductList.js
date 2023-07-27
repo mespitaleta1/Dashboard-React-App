@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getShopifyProducts} from "../Services/shopifyApi";
+import { getShopifyProducts } from "../Services/cloudDataApi";
 
 export const useProductList = () => {
     const [loading, setLoading] = useState(false);
