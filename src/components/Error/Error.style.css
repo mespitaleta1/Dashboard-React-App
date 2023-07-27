@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.reload-button:hover {
+    background-color: #827dd9;
+}
+
 .error-container {
     margin: auto;
     display: flex;
