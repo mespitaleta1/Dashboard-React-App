@@ -27,7 +27,7 @@ stock level, re-order leve, name, etc.
 ![dashboard desktop design](./src/assets/Screenshot%202023-07-26%20at%2012-22-57%20Dashboar%20React%20App.png)
 
 ### Links
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL:[Dashboard-react-app-Link](https://dashboard-react-erb9cwdsf-mespitaleta1.vercel.app/)
 
 
 ## My process

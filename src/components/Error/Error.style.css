@@ -12,6 +12,7 @@
     text-transform: capitalize;
     background-color: #4f46e4;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .error-container {
